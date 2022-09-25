@@ -22,8 +22,32 @@
         <mat-icon>delete_forever</mat-icon>
         Delete Profile
       </button>
-
     </mat-card-actions>
   </mat-card>
+
+  <section class="movie-view">
+        
+    <mat-card class="card-internals" *ngFor="let movie of filteredMovies;">
+
+        
+        <div class="center">
+            <img 
+            src={{movie.ImagePath}} 
+            alt= {{movie.Title}}
+            width = 50%       
+        />
+        </div>
+                
+        <mat-card-footer tooltip="remove" >                       
+            <button
+                mat-stroked-button
+                (click)="removeFavoriteMovie(movie._id)"                       
+                color="basic"                    
+            >  
+                <mat-icon> delete</mat-icon>  
+            </button>                                                      
+        </mat-card-footer>   
+    </mat-card>  
+</section> 
 
 </div>

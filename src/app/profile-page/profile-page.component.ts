@@ -15,6 +15,8 @@ import { Router } from '@angular/router';
 })
 export class ProfilePageComponent implements OnInit {
   user: any = {};
+  movies: any[] = [];
+  filteredMovies: any[] = [];
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -25,6 +27,7 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
+    this.getFavoriteMovies();
   }
 
 //get user data
@@ -56,5 +59,36 @@ export class ProfilePageComponent implements OnInit {
         localStorage.clear();
       });
     }
+  }
+
+  //display favorite movies
+  getFavoriteMovies(): void {
+    this.fetchApiData
+      .getAllMovies().subscribe((response: any) => {
+        this.movies = response;
+        this.filteredMovies = this.filterMovies(this.movies, this.user.FavoriteMovies);
+        return this.filteredMovies;
+      });
+  }
+
+  //filter through movies to get favorites
+  filterMovies(movies: any, FavoriteMovies: any): any {
+    let remainingMovies = [];
+    for (let movie in movies) {
+      if (FavoriteMovies.includes(movies[movie]._id)) {
+        remainingMovies.push(movies[movie]);
+      }
+    }
+    return remainingMovies;
+  }
+
+  //delete moves from favorites
+  removeFavoriteMovie(movie_id: string): void {
+    this.fetchApiData
+      .removeFavoriteMovie(movie_id)
+      .subscribe((response) => {
+        console.log(response);
+        window.location.reload();
+      });
   }
 }
