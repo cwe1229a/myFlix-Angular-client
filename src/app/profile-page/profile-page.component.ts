@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FetchApiDataService } from '../fetch-api-data.service';
+
+import { EditProfilePageComponent } from '../edit-profile-page/edit-profile-page.component';
+
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-page',
@@ -6,10 +14,47 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-page.component.scss']
 })
 export class ProfilePageComponent implements OnInit {
+  user: any = {};
 
-  constructor() { }
+  constructor(
+    public fetchApiData: FetchApiDataService,
+    public dialog: MatDialog,
+    public router: Router,
+    public snackBar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
+    this.getUser();
   }
 
+//get user data
+  getUser(): void {
+    this.fetchApiData.getUser().subscribe((resp: any) => {
+      this.user = resp;
+      console.log(this.user);
+      return this.user;
+    })
+  }
+
+ //dialog to open option to edit profile
+  openEditProfileDialog(): void {
+    this.dialog.open(EditProfilePageComponent, {
+      width: '300px'
+    })
+  }
+
+ //user deletes profile
+  deleteProfile(): void {
+    if (confirm('Are you sure you want to delete your account? This cannnot be undone.')) {
+      this.router.navigate(['welcome']).then(() => {
+        this.snackBar.open('You have successfully deleted your account!', 'OK', {
+          duration: 2000
+        });
+      })
+      this.fetchApiData.deleteUser().subscribe((result) => {
+        console.log(result);
+        localStorage.clear();
+      });
+    }
+  }
 }

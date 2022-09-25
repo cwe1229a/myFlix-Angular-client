@@ -149,7 +149,7 @@ export class FetchApiDataService {
   }
 
 //call to update user info
-  updateUser(updateDetails: any): Observable<any> {
+  editUser(updateDetails: any): Observable<any> {
     return this.http
       .put(apiUrl + `users/${username}`, updateDetails, {
         headers: new HttpHeaders({
