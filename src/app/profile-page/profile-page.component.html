@@ -34,7 +34,7 @@
         <img src="{{ movie.ImagePath }}" alt="{{ movie.Title }}" width="50%" />
       </div>
 
-      <mat-card-footer tooltip="remove">
+      <mat-card-footer class="footer" tooltip="remove">
         <button
           mat-stroked-button
           (click)="removeFavoriteMovie(movie._id)"

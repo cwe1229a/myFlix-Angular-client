@@ -1,32 +1,33 @@
-$backgroundColor: #f8f9fa;
-$cardColor: #996a6a;
+$backgroundColor: #5a1b1b;
+$cardColor: #ffffff;
 $textColor: #000000;
-$boxShadowColor: #e9ecef;
+$boxShadowColor: rgba(48, 11, 11, 0.829);
+
 .director-dialog {
-    background-color: $cardColor;
-    margin-top: 0px;
-    box-shadow: none;
+  background-color: $cardColor;
+  margin-top: 0px;
+  box-shadow: none;
 }
 
 .director-dialog-title {
-    color: $textColor;
+  color: $textColor;
 }
 
 .director-dialog-content {
-    color: $textColor;
+  color: $textColor;
 }
 
-::ng-deep .director-custom>mat-dialog-container {
-    background-color: $cardColor;
+::ng-deep .director-custom > mat-dialog-container {
+  background-color: $cardColor;
 }
 
 .director-close-button.mat-stroked-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0px;
-    line-height: 14px;
-    min-width: auto;
-    border: none;
-    font-size: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0px;
+  line-height: 14px;
+  min-width: auto;
+  border: none;
+  font-size: 20px;
 }

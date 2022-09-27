@@ -1,7 +1,11 @@
-$backgroundColor: #f8f9fa;
-$cardColor: #996a6a;
+$backgroundColor: #5a1b1b;
+$cardColor: #ffffff;
 $textColor: #000000;
-$boxShadowColor: #e9ecef;
+$boxShadowColor: rgba(48, 11, 11, 0.829);
+
+.user-profile-page {
+  background-color: $backgroundColor;
+}
 
 .favorite-movie-view {
   display: flex;
@@ -33,6 +37,10 @@ $boxShadowColor: #e9ecef;
   flex-wrap: wrap;
   justify-content: center;
   color: $textColor;
+}
+
+.footer {
+  background-color: $backgroundColor;
 }
 
 .movie-title {
