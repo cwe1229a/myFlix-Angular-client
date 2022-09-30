@@ -1,5 +1,5 @@
 # MyFlixAngularClient
-**A project that was generated with Angular CLI , to become familiar with Angular using an
+A project that was generated with Angular CLI , to become familiar with Angular using an
 existing database. This app allows users to view various pirate movies. You can make a user 
 profile, see details about movies and add them to a favorites list.
 
