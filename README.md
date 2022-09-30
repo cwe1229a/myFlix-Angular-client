@@ -8,7 +8,7 @@ profile, see details about movies and add them to a favorites list.
 ## Languages, Libraries and technologies used
 * Angular
 * Angular Material
-*TypeDoc
+* TypeDoc
 
 ## User Stories...why this project?
 * As a user, I want to be able to receive information on movies, directors, and genres so that I can learn more about movies I’ve watched or am interested in.
